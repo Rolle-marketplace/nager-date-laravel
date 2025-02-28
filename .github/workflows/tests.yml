@@ -10,39 +10,63 @@ jobs:
   tests:
     runs-on: ubuntu-latest
     strategy:
-      fail-fast: true
+      fail-fast: false
       matrix:
-        php: [7.3, 7.4, 8.0, 8.1, 8.2, 8.3]
-        laravel: [8.*, 9.*, 10.*, 11.*, 12.*]
-        exclude:
+        include:
+          # Laravel 8
           - php: 7.3
-            laravel: 10.*
-          - php: 7.3
-            laravel: 11.*
-          - php: 7.3
-            laravel: 12.*
+            laravel: 8.*
+            testbench: 6.*
           - php: 7.4
-            laravel: 10.*
-          - php: 7.4
-            laravel: 11.*
-          - php: 7.4
-            laravel: 12.*
+            laravel: 8.*
+            testbench: 6.*
           - php: 8.0
-            laravel: 10.*
-          - php: 8.0
-            laravel: 11.*
-          - php: 8.0
-            laravel: 12.*
+            laravel: 8.*
+            testbench: 6.*
           - php: 8.1
-            laravel: 11.*
+            laravel: 8.*
+            testbench: 6.*
+            
+          # Laravel 9
+          - php: 8.0
+            laravel: 9.*
+            testbench: 7.*
           - php: 8.1
+            laravel: 9.*
+            testbench: 7.*
+          - php: 8.2
+            laravel: 9.*
+            testbench: 7.*
+            
+          # Laravel 10
+          - php: 8.1
+            laravel: 10.*
+            testbench: 8.*
+          - php: 8.2
+            laravel: 10.*
+            testbench: 8.*
+          - php: 8.3
+            laravel: 10.*
+            testbench: 8.*
+            
+          # Laravel 11
+          - php: 8.2
+            laravel: 11.*
+            testbench: 9.*
+          - php: 8.3
+            laravel: 11.*
+            testbench: 9.*
+            
+          # Laravel 12 (future)
+          - php: 8.3
             laravel: 12.*
+            testbench: 10.*
 
     name: PHP ${{ matrix.php }} - Laravel ${{ matrix.laravel }}
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
@@ -53,7 +77,7 @@ jobs:
 
       - name: Install dependencies
         run: |
-          composer require "laravel/framework:${{ matrix.laravel }}" --no-interaction --no-update
+          composer require "laravel/framework:${{ matrix.laravel }}" "orchestra/testbench:${{ matrix.testbench }}" --no-interaction --no-update
           composer update --prefer-dist --no-interaction --no-progress
 
       - name: Execute tests

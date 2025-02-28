@@ -11,3 +11,4 @@ All notable changes to the `rolle-marketplace/nager-date-laravel` package will b
 - Complete test suite
 - Documentation
 - Support for Laravel 8, 9, 10, 11, and 12
+- Minimum PHP version requirement: 7.3

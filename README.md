@@ -1,7 +1,7 @@
 # Nager.Date Laravel
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/rolle-marketplace/nager-date-laravel.svg?style=flat-square)](https://packagist.org/packages/rolle-marketplace/nager-date-laravel)
-[![GitHub Tests Action Status](https://img.shields.io/github/workflow/status/Rolle-marketplace/nager-date-laravel/tests?label=tests)](https://github.com/Rolle-marketplace/nager-date-laravel/actions?query=workflow%3Atests+branch%3Amain)
+[![GitHub Tests Action Status](https://img.shields.io/github/workflow/status/Rolle-marketplace/nager-date-laravel/Tests?label=tests)](https://github.com/Rolle-marketplace/nager-date-laravel/actions?query=workflow%3Atests+branch%3Amain)
 [![Total Downloads](https://img.shields.io/packagist/dt/rolle-marketplace/nager-date-laravel.svg?style=flat-square)](https://packagist.org/packages/rolle-marketplace/nager-date-laravel)
 [![GitHub license](https://img.shields.io/github/license/Rolle-marketplace/nager-date-laravel?style=flat-square)](https://github.com/Rolle-marketplace/nager-date-laravel/blob/main/LICENSE.md)
 
@@ -9,7 +9,7 @@ A Laravel wrapper for the [Nager.Date API](https://date.nager.at/swagger/index.h
 
 ## Requirements
 
-- PHP 7.0 or higher
+- PHP 7.3 or higher
 - Laravel 8.0, 9.0, 10.0, 11.0, or 12.0
 - Guzzle HTTP 7.0 or higher
 
