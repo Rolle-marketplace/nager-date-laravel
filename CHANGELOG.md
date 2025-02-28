@@ -2,6 +2,11 @@
 
 All notable changes to the `rolle-marketplace/nager-date-laravel` package will be documented in this file.
 
+## [1.0.1] - 2025-02-28
+
+### Fixed
+- Definition of base url and API endpoints
+
 ## [1.0.0] - 2025-02-28
 
 ### Added

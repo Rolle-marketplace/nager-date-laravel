@@ -1,7 +1,7 @@
 {
     "name": "rolle-marketplace/nager-date-laravel",
     "description": "Laravel wrapper for the Nager.Date API",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "type": "library",
     "license": "MIT",
     "keywords": [

@@ -10,5 +10,5 @@ return [
     | unless the API URL changes.
     |
     */
-    'base_url' => env('NAGER_DATE_BASE_URL', 'https://date.nager.at/api/v3'),
+    'base_url' => env('NAGER_DATE_BASE_URL', 'https://date.nager.at/'),
 ];

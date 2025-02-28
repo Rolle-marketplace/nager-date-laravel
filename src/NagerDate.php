@@ -46,9 +46,9 @@ class NagerDate
      */
     public function getAvailableCountries(): Collection
     {
-        $response = $this->client->get('/AvailableCountries');
+        $response = $this->client->get('api/v3/AvailableCountries');
         $data = json_decode($response->getBody()->getContents(), true);
-        
+
         return collect($data)->map(function ($item) {
             return CountryDTO::fromArray($item);
         });
@@ -66,9 +66,9 @@ class NagerDate
     {
         $this->validateCountryCode($countryCode);
 
-        $response = $this->client->get("/PublicHolidays/{$year}/{$countryCode}");
+        $response = $this->client->get("api/v3/PublicHolidays/{$year}/{$countryCode}");
         $data = json_decode($response->getBody()->getContents(), true);
-        
+
         return collect($data)->map(function ($item) {
             return PublicHolidayDTO::fromArray($item);
         });
@@ -86,9 +86,9 @@ class NagerDate
     {
         $this->validateCountryCode($countryCode);
 
-        $response = $this->client->get("/PublicHolidaysWithWeekend/{$year}/{$countryCode}");
+        $response = $this->client->get("api/v3/PublicHolidaysWithWeekend/{$year}/{$countryCode}");
         $data = json_decode($response->getBody()->getContents(), true);
-        
+
         return collect($data)->map(function ($item) {
             return PublicHolidayDTO::fromArray($item);
         });
@@ -108,8 +108,8 @@ class NagerDate
     {
         $this->validateCountryCode($countryCode);
 
-        $response = $this->client->get("/PublicHoliday/{$countryCode}/{$year}-{$month}-{$day}");
-        
+        $response = $this->client->get("api/v3/PublicHoliday/{$countryCode}/{$year}-{$month}-{$day}");
+
         return $response->getStatusCode() === 200;
     }
 
@@ -125,9 +125,9 @@ class NagerDate
     {
         $this->validateCountryCode($countryCode);
 
-        $response = $this->client->get("/LongWeekend/{$year}/{$countryCode}");
+        $response = $this->client->get("api/v3/LongWeekend/{$year}/{$countryCode}");
         $data = json_decode($response->getBody()->getContents(), true);
-        
+
         return collect($data)->map(function ($item) {
             return LongWeekendDTO::fromArray($item);
         });
@@ -144,9 +144,9 @@ class NagerDate
     {
         $this->validateCountryCode($countryCode);
 
-        $response = $this->client->get("/CountryInfo/{$countryCode}");
+        $response = $this->client->get("api/v3/CountryInfo/{$countryCode}");
         $data = json_decode($response->getBody()->getContents(), true);
-        
+
         return CountryDTO::fromArray($data);
     }
 
@@ -161,9 +161,9 @@ class NagerDate
      */
     public function isWeekend(int $year, int $month, int $day): bool
     {
-        $response = $this->client->get("/IsWeekend/{$year}-{$month}-{$day}");
+        $response = $this->client->get("api/v3/IsWeekend/{$year}-{$month}-{$day}");
         $data = json_decode($response->getBody()->getContents(), true);
-        
+
         return $data ?? false;
     }
 
