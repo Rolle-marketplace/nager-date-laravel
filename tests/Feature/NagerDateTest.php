@@ -7,30 +7,15 @@ use GuzzleHttp\Handler\MockHandler;
 use GuzzleHttp\HandlerStack;
 use GuzzleHttp\Psr7\Response;
 use Illuminate\Support\Collection;
-use Orchestra\Testbench\TestCase;
 use RolleMarketplace\NagerDateLaravel\DTOs\CountryDTO;
 use RolleMarketplace\NagerDateLaravel\DTOs\PublicHolidayDTO;
 use RolleMarketplace\NagerDateLaravel\Enums\CountryCode;
 use RolleMarketplace\NagerDateLaravel\Exceptions\InvalidCountryCodeException;
 use RolleMarketplace\NagerDateLaravel\Facades\NagerDate;
-use RolleMarketplace\NagerDateLaravel\NagerDateServiceProvider;
+use RolleMarketplace\NagerDateLaravel\Tests\TestCase;
 
 class NagerDateTest extends TestCase
 {
-    protected function getPackageProviders($app)
-    {
-        return [
-            NagerDateServiceProvider::class,
-        ];
-    }
-
-    protected function getPackageAliases($app)
-    {
-        return [
-            'NagerDate' => NagerDate::class,
-        ];
-    }
-
     /** @test */
     public function it_can_get_available_countries()
     {
